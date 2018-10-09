@@ -1,4 +1,6 @@
+var hello = <h1>Hello World</h1>
+
 ReactDOM.render(
-  <div>Hello World  </div>,
+  hello,
   document.getElementById("root")
 )
