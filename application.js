@@ -1,43 +1,35 @@
+// Objects
 var item = {
   name: "gravy",
+  stock: 2,
   price: 5,
   imageURL: "https://i.pinimg.com/originals/a8/f9/d3/a8f9d33962b13ba82f029a34252e14a4.jpg"
 }
 var styleObject = {
-  backgroundColor: 'red',
-  color:'blue',
+  backgroundColor: '#666',
+  color: '#FFF',
   fontSize: 25,
-  width: 100
 }
 
-var str = "World!"
-var hello = <h1>Hello {str} Time to get that ${item.price} {item.name}.</h1>
+// Logic
+if (item.stock < 1) {
+  var element = <h1>The item named {item.name} is not in stock</h1>
+} else {
+  var element = <h1 style={styleObject}>The item named {item.name} and has {item.stock} units in stock at ${item.price} costing a total of ${multiply(item.stock, item.price)}</h1> 
+}
 
-var button = <button className ="deleteButton" style = {{width:50}}> Delete </button>
+var allofit = <div><Hello name="Luke"/>{element}</div>
 
-var pic = <img src = {item.imageURL}></img>
-
-var allofit = <div>{hello}{button}{pic}</div>
-
+// React DOM
 ReactDOM.render(
   allofit,
   document.getElementById("root")
 )
 
-var product = {name: "apple", stock: 5, price: 2}
-
-if (product.stock < 0) {
-  var element = <h1>The product named {product.name} is not in stock</h1>
-}
-else {
-  var element = <h1>The product named {product.name} and has {product.stock} units in stock, costing a total of {multiply(product.stock, product.price)}</h1> 
-}
-
-// ReactDOM.render(
-//   element,
-//   document.getElementById("root")
-// )
-
+// Functions
 function multiply(a, b) {
   return a * b
+}
+function Hello(arg) {
+  return <h2>Hello {arg.name}!</h2>
 }

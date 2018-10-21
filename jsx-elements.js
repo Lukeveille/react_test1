@@ -15,28 +15,22 @@ var hello = <h1>Hello {str} Time to get that ${item.price} {item.name}.</h1>
 
 var button = <button className ="deleteButton" style = {{width:50}}> Delete </button>
 
-var pic = <img src = {item.imageURL}></img>
+var pic = <img src={item.imageURL}></img>
 
-var allofit = <div>{hello}{button}{pic}</div>
+var product = {name: "apple", stock: 5, price: 2}
+
+if (product.stock < 1) {
+  var element = <h1>The product named {product.name} is not in stock</h1>
+} else {
+  var element = <h1>The product named {product.name} and has {product.stock} units in stock, costing a total of {multiply(product.stock, product.price)}</h1> 
+}
+
+var allofit = <div>{hello}{button}{pic}{element}</div>
 
 ReactDOM.render(
   allofit,
   document.getElementById("root")
 )
-
-var product = {name: "apple", stock: 5, price: 2}
-
-if (product.stock < 0) {
-  var element = <h1>The product named {product.name} is not in stock</h1>
-}
-else {
-  var element = <h1>The product named {product.name} and has {product.stock} units in stock, costing a total of {multiply(product.stock, product.price)}</h1> 
-}
-
-// ReactDOM.render(
-//   element,
-//   document.getElementById("root")
-// )
 
 function multiply(a, b) {
   return a * b
