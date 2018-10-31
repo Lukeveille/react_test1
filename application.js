@@ -26,7 +26,7 @@ function ShoppingList(props) {
 }
 
 // Assemble page
-function ShoppingApp(props) {
+function ShoppingApp() {
   return (
     <div>
       <ShoppingTitle title = "My Shopping List" numItems = "9"/>
